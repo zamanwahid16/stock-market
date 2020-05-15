@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+{% block main %}
+    <h3>Transaction History</h3></br>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Symbol</th>
+                <th>Number of Shares</th>
+                <th>Share Price</th>
+                <th>Transacted on</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+                <tr>
+                    <td>{{row["symbol"]}}</td>
+                    <td>{{row["shares"]}}</td>
+                    <td>{{row["price"]}}</td>
+                    <td>{{row["time"]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

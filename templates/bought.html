@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+{% block main %}
+    <main class="container p-5">
+
+    <p>
+        <h5>Purchase Successful!</h5> </br>
+        You just bought {{shares}} shares of {{company_name}} ({{symbol}}) spending {{usd}} in total.</br>
+        Your current balance is <b>{{balance}}</b>.
+    </p>
+
+    </main>
+
+{% endblock %}

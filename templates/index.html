@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+{% block main %}
+    <h3>Summary of your stocks!</h3></br>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Symbol</th>
+                <th>Company Name</th>
+                <th>Number of Shares You Own</th>
+                <th>Current Share Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr class="table-info">
+                <td colspan="4"><b>Current Balance: </b></td>
+                <td>{{current_balance}}</td>
+            </tr>
+            <tr class="table-info">
+                <td colspan="4"><b>Grand Total Value: </b></td>
+                <td><b>{{grand_total}}</b></td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for row in data %}
+                <tr>
+                    <td>{{row["symbol"]}}</td>
+                    <td>{{row["name"]}}</td>
+                    <td>{{row["shares"]}}</td>
+                    <td>{{row["price"]}}</td>
+                    <td>{{row["total"]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+{% block main %}
+    <p>
+        <h3>Purchase shares of any company.</h3> </br>Just type the symbol of the company shares you want to buy and the number of shares.
+    </p>
+    <form action="/buy" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus="" class="form-control" id="symbol" name="symbol" placeholder="Symbol" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" min="1" id="share" name="shares" placeholder="Shares" type="number">
+        </div>
+        <button class="btn btn-primary" id="submit" type="submit" disabled>Buy</button>
+    </form>
+     <script>
+        document.querySelector('#symbol').onkeyup = function() {
+            if((document.querySelector('#symbol').value === '') || (document.querySelector('#share').value === '')){
+                document.querySelector('#submit').disabled = true;
+            }else{
+                document.querySelector('#submit').disabled = false;
+            }
+        }
+        document.querySelector('#share').onkeyup = function() {
+            if((document.querySelector('#share').value === '') || (document.querySelector('#symbol').value === '') ){
+                document.querySelector('#submit').disabled = true;
+            }else{
+                document.querySelector('#submit').disabled = false;
+            }
+        }
+    </script>
+
+{% endblock %}
